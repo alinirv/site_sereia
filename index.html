@@ -2598,6 +2598,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       })
     }, Math.random() * 12000 + 5000);
     
+    //------------------------------tags--------------------------------------------
+    //midias sociais
+    var origem = document.querySelectorAll('.list-inline.social-buttons'); //auxilia indentidicação origem midia social
+    var midiaTwitter = document.querySelectorAll('.fa.fa-twitter');
+    var midiaLinkedin = document.querySelectorAll('.fa.fa-linkedin');
+    var midiaFacebook = document.querySelectorAll('.fa.fa-facebook');
+    
+	midiaTwitter.forEach(function(e, i){
+	    e.addEventListener('click', function(){
+		    let localOrigem;
+		    origem[i].parentNode.className =="col-md-4"? localOrigem = "footer": localOrigem =origem[i].parentNode.className;
+		    tracker.send("event",{
+			    category: "midias sociais",
+			    action: "click",
+			    label: "twitter",
+			    cd1: localOrigem
+		    });
+	     });
+	});
+	midiaFacebook.forEach(function(e, i){
+		e.addEventListener('click', function(){
+			let localOrigem;
+			origem[i].parentNode.className =="col-md-4"? localOrigem = "footer": localOrigem =origem[i].parentNode.className;
+			tracker.send("event",{
+			    category: "midias sociais",
+			    action: "click",
+			    label: "facebook",
+			    cd1: localOrigem
+			});
+		});
+	});	  
+	 midiaLinkedin.forEach(function(e, i){
+		e.addEventListener('click', function(){
+			let localOrigem;
+			origem[i].parentNode.className =="col-md-4"? localOrigem = "footer": localOrigem =origem[i].parentNode.className;
+			tracker.send("event",{
+			    category: "midias sociais",
+			    action: "click",
+			    label: "linkedin",
+			    cd1: localOrigem
+			});
+		});
+	});
+	//scroll
+	window.addEventListener("scroll", function(){
+		if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight){
+			tracker.send("event",{
+				category: "user-interaction",
+              			action: "scroll",
+              			label: "visualization"
+			});
+		}
+        });	  
+	  
+	  
   </script>
 
 </body>
