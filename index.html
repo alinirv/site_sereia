@@ -2650,7 +2650,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               			label: "visualization"
 			});
 		}
-        });	  
+        });
+	//visualização form
+	var paraForm = document.querySelectorAll('a[href="#contact"]');
+	paraForm.forEach(function(e){
+		e.addEventListener('click', function(){
+			tracker.send("event",{
+				category: "form-interaction",
+              			action: "click",
+              			label: "visualization",
+              			cd1: e.innerText
+            		});
+    		});
+	});	  
 	  
 	  
   </script>
